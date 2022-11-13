@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Mono';
+  src: url('./assets/webfont/eot/JetBrainsMono-Regular.eot');
+  src: url('./assets/webfont/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+      url('./assets/webfont/woff/JetBrainsMono-Regular.woff') format('woff');
+}
+
+:root {
+  --background-color: #0d1117;
+  --border-color: #30363d;
+  --border-radius: 6px;
+  --border-active: #1f6feb;
+  --text-color: #8b949e;
+  --hover-color: #161b22;
+
+  --font-family: 'Mono', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: #fff;
+  padding: 8px;
+}
+
+* {
+  /* Make text not selectable */
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
