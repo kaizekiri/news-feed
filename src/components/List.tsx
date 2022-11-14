@@ -10,6 +10,7 @@ import {
 } from '../constants';
 
 const Card = styled.div`
+    margin-top: 142px;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
 `;

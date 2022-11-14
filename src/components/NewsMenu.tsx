@@ -8,10 +8,9 @@ import { OPTIONS } from '../constants';
 
 const LogosRowStyles = styled.div`
     display: flex;
-    background: var(--background-color);
     gap: 10px;
     margin: 10px 0px 20px 0px;
-    padding: 5px;
+    padding: 4px;
     overflow-x: scroll;
     position: sticky;
     top: 0;
@@ -34,7 +33,6 @@ const LogoWrapperStyles = styled.div<{
     ${({ isActive }) =>
         isActive &&
         css`
-            outline: 1px solid var(--background-color);
             box-shadow: 0 0 0 3px var(--border-active);
         `}
 `;
@@ -45,6 +43,15 @@ const LogoStyles = styled.img`
     object-fit: contain;
 `;
 
+const MenuContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 16px;
+    right: 0;
+    background: var(--background-color);
+    z-index: 10;
+`;
+
 type Props = {
     selectedValue: string;
     onChangeValue: (value: string) => void;
@@ -52,38 +59,43 @@ type Props = {
 
 function NewsMenu({ selectedValue, onChangeValue }: Props) {
     return (
-        <LogosRowStyles>
-            <LogoWrapperStyles
-                background="#00b9f2"
-                isActive={selectedValue === OPTIONS.RSS_URL_NRK}
-                onClick={() => onChangeValue(OPTIONS.RSS_URL_NRK)}
-            >
-                <LogoStyles
-                    src={NRK_LOGO}
-                    alt="NRK logo"
-                    width={75}
-                    height={50}
-                />
-            </LogoWrapperStyles>
-            <LogoWrapperStyles
-                isActive={selectedValue === OPTIONS.RSS_URL_TV2}
-                onClick={() => onChangeValue(OPTIONS.RSS_URL_TV2)}
-            >
-                <LogoStyles src={TV2_LOGO} alt="TV2 logo" height={55} />
-            </LogoWrapperStyles>
-            <LogoWrapperStyles
-                isActive={selectedValue === OPTIONS.RSS_URL_CNBC}
-                onClick={() => onChangeValue(OPTIONS.RSS_URL_CNBC)}
-            >
-                <LogoStyles src={CNBC_LOGO} alt="CNBC logo" />
-            </LogoWrapperStyles>
-            <LogoWrapperStyles
-                isActive={selectedValue === OPTIONS.RSS_URL_NYT}
-                onClick={() => onChangeValue(OPTIONS.RSS_URL_NYT)}
-            >
-                <LogoStyles src={NYT_LOGO} alt="NYT logo" />
-            </LogoWrapperStyles>
-        </LogosRowStyles>
+        <MenuContainer>
+            <h3>
+                News Feed <span style={{ opacity: 0.2 }}>Stay informed</span>
+            </h3>
+            <LogosRowStyles>
+                <LogoWrapperStyles
+                    background="#00b9f2"
+                    isActive={selectedValue === OPTIONS.RSS_URL_NRK}
+                    onClick={() => onChangeValue(OPTIONS.RSS_URL_NRK)}
+                >
+                    <LogoStyles
+                        src={NRK_LOGO}
+                        alt="NRK logo"
+                        width={75}
+                        height={50}
+                    />
+                </LogoWrapperStyles>
+                <LogoWrapperStyles
+                    isActive={selectedValue === OPTIONS.RSS_URL_TV2}
+                    onClick={() => onChangeValue(OPTIONS.RSS_URL_TV2)}
+                >
+                    <LogoStyles src={TV2_LOGO} alt="TV2 logo" height={55} />
+                </LogoWrapperStyles>
+                <LogoWrapperStyles
+                    isActive={selectedValue === OPTIONS.RSS_URL_CNBC}
+                    onClick={() => onChangeValue(OPTIONS.RSS_URL_CNBC)}
+                >
+                    <LogoStyles src={CNBC_LOGO} alt="CNBC logo" />
+                </LogoWrapperStyles>
+                <LogoWrapperStyles
+                    isActive={selectedValue === OPTIONS.RSS_URL_NYT}
+                    onClick={() => onChangeValue(OPTIONS.RSS_URL_NYT)}
+                >
+                    <LogoStyles src={NYT_LOGO} alt="NYT logo" />
+                </LogoWrapperStyles>
+            </LogosRowStyles>
+        </MenuContainer>
     );
 }
 

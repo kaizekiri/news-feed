@@ -11,9 +11,6 @@ const NewsFeed = () => {
 
     return (
         <>
-            <h3>
-                News Feed <span style={{ opacity: 0.2 }}>Stay informed</span>
-            </h3>
             <NewsMenu
                 selectedValue={selectedValue}
                 onChangeValue={onChangeValue}

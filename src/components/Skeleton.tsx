@@ -38,7 +38,7 @@ const SkeletonBox = styled.span`
 const Skeleton = () => {
     return (
         <>
-            {Array.from(Array(10).keys()).map((item) => (
+            {Array.from(Array(20).keys()).map((item) => (
                 <ListItem key={item}>
                     <SkeletonBox />
                 </ListItem>

@@ -17,7 +17,6 @@ type FeedItem = {
 
 const RSSFeed = ({ url }: RSSFeedProps) => {
     const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
-    const [articleCount, setArticleCount] = useState(10);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
 
@@ -28,7 +27,7 @@ const RSSFeed = ({ url }: RSSFeedProps) => {
                 const feedString = await feedResponse.text();
                 const feed: any = await rssParser.parseString(feedString);
                 // We slice the feed to get a selection of items
-                setFeedItems(feed.items.slice(0, articleCount));
+                setFeedItems(feed.items);
             } catch (e) {
                 setHasError(true);
                 console.error('Error fetching feed', e);
@@ -36,7 +35,7 @@ const RSSFeed = ({ url }: RSSFeedProps) => {
                 setIsLoading(false);
             }
         })();
-    }, [url, articleCount]);
+    }, [url]);
 
     return (
         <>
@@ -49,9 +48,6 @@ const RSSFeed = ({ url }: RSSFeedProps) => {
                             <Link title={item.title} link={item.link} />
                         </ListItem>
                     ))}
-                    <button onClick={() => setArticleCount(articleCount + 5)}>
-                        Load 5 more articles
-                    </button>
                 </>
             )}
         </>
