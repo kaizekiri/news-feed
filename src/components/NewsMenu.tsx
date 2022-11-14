@@ -8,10 +8,13 @@ import { OPTIONS } from '../constants';
 
 const LogosRowStyles = styled.div`
     display: flex;
+    background: var(--background-color);
     gap: 10px;
     margin: 10px 0px 20px 0px;
     padding: 5px;
     overflow-x: scroll;
+    position: sticky;
+    top: 0;
 `;
 
 const LogoWrapperStyles = styled.div<{
