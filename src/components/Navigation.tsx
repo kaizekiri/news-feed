@@ -45,10 +45,12 @@ const LogoStyles = styled.img`
 
 const MenuContainer = styled.div`
     position: fixed;
-    top: 0;
-    left: 16px;
+    bottom: 0;
+    left: 0;
+    padding-left: 16px;
     right: 0;
-    background: var(--background-color);
+    border-top: 1px solid var(--border-color);
+    background: #161b22;
     z-index: 10;
 `;
 
@@ -57,12 +59,9 @@ type Props = {
     onChangeValue: (value: string) => void;
 };
 
-function NewsMenu({ selectedValue, onChangeValue }: Props) {
+function Navigation({ selectedValue, onChangeValue }: Props) {
     return (
         <MenuContainer>
-            <h3>
-                News Feed <span style={{ opacity: 0.2 }}>Stay informed</span>
-            </h3>
             <LogosRowStyles>
                 <LogoWrapperStyles
                     background="#00b9f2"
@@ -99,4 +98,4 @@ function NewsMenu({ selectedValue, onChangeValue }: Props) {
     );
 }
 
-export default NewsMenu;
+export default Navigation;

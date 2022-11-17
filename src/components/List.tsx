@@ -10,7 +10,8 @@ import {
 } from '../constants';
 
 const Card = styled.div`
-    margin-top: 142px;
+    margin-top: 60px;
+    margin-bottom: 110px;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
 `;

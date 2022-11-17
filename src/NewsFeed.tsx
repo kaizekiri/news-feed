@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import NewsMenu from './components/NewsMenu';
+import Header from './components/Header';
 import { OPTIONS } from './constants';
 import List from './components/List';
+import Navigation from './components/Navigation';
 
 const NewsFeed = () => {
     const [selectedValue, setSelectedValue] = useState(OPTIONS.RSS_URL_NRK);
@@ -11,11 +12,12 @@ const NewsFeed = () => {
 
     return (
         <>
-            <NewsMenu
+            <Header />
+            <List selectedValue={selectedValue} />
+            <Navigation
                 selectedValue={selectedValue}
                 onChangeValue={onChangeValue}
             />
-            <List selectedValue={selectedValue} />
         </>
     );
 };
